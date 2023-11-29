@@ -1,41 +1,44 @@
 const { OPCUAClient, AttributeIds } = require('node-opcua');
-const msSqlConnect = require('./msSqlConnect'); // MS-SQL Writing module
-const config = require("../../cfg-data/opcConfig.json")
-const endpointUrl = config.endpointUrl;
+const MsSqlConnection = require('./MsSqlConnection');
+const OpcConfig = require("../../cfg-data/opcConfig.json");
 
-async function readOpcUaData(nodeIds) {
-  const client = OPCUAClient.create({ endpointMustExist: false });
+// Class for reading data from OPC-UA server
+class OpcuaClient {
+  constructor() {
+    this.msSqlConnect = new MsSqlConnection();
+    this.endpointUrl = OpcConfig.endpointUrl;
+  }
 
-  try {
-    // Connect to OPC UA server with a timeout
-    await Promise.race([
-      client.connect(endpointUrl),
-      new Promise((_, reject) => setTimeout(() => reject(new Error('OPC UA - Connection timeout!')), 5000))
-    ]);
+  // Method to read data from OPC-UA nodes
+  async readOpcUaData(nodeIds) {
+    const client = OPCUAClient.create({ endpointMustExist: false });
 
-    const session = await client.createSession();
+    try {
+      await Promise.race([
+        client.connect(this.endpointUrl),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('OPC UA - Connection timeout!')), 5000))
+      ]);
 
-    // Prepare nodes to read
-    const nodesToRead = nodeIds.map((nodeId) => ({ nodeId, attributeId: AttributeIds.Value }));
+      const session = await client.createSession();
 
-    // Read data from nodes
-    const dataValues = await session.read(nodesToRead);
+      const nodesToRead = nodeIds.map((nodeId) => ({ nodeId, attributeId: AttributeIds.Value }));
 
-    // Process and structure the data
-    const data = {};
-    dataValues.forEach((dataValue, index) => {
-      const nodeId = nodeIds[index];
-      data[nodeId] = dataValue.value.value;
-    });
+      const dataValues = await session.read(nodesToRead);
 
-    return data;
-  } catch (error) {
-    console.error('(readOpcUaData) - Error:', error.message);
-    await msSqlConnect.sqlLog(error.message);
-  } finally {
-    // Disconnect from the OPC UA server in all cases
-    await client.disconnect();
+      const data = {};
+      dataValues.forEach((dataValue, index) => {
+        const nodeId = nodeIds[index];
+        data[nodeId] = dataValue.value.value;
+      });
+
+      return data;
+    } catch (error) {
+      console.error('(readOpcUaData) - Error:', error.message);
+      await this.msSqlConnect.logToMsSql(error.message);
+    } finally {
+      await client.disconnect();
+    }
   }
 }
 
-module.exports = readOpcUaData;
+module.exports = OpcuaClient;
