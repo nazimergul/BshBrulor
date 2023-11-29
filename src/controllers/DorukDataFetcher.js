@@ -30,7 +30,6 @@ class DorukDataFetcher {
         PlanMiktar,
         PlanKalanMiktar,
       };
-      console.log(data);
       return data;
     } catch (error) {
       console.error('(getAndParseXML) - Error:', error.message);

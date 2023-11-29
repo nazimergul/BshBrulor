@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Uygulamayı başlat
-CMD ["node", "app.js"]
+CMD ["node", "index.js"]
