@@ -22,15 +22,15 @@ class DorukDataFetcher {
       const parser = new xml2js.Parser({ explicitArray: false, mergeAttrs: true });
       const result = await parser.parseStringPromise(response.data);
 
-      const { Machine, PartName, PlannedQuantity, RemainingQuantity } = result.ArrayOfOnlineKPI.OnlineKPI;
+      const { Makine, ParcaAdi, PlanMiktar, PlanKalanMiktar } = result.ArrayOfOnlineKPI.OnlineKPI;
 
       const data = {
-        Machine,
-        PartName,
-        PlannedQuantity,
-        RemainingQuantity,
+        Makine,
+        ParcaAdi,
+        PlanMiktar,
+        PlanKalanMiktar,
       };
-
+      console.log(data);
       return data;
     } catch (error) {
       console.error('(getAndParseXML) - Error:', error.message);

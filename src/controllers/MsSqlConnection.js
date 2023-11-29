@@ -27,7 +27,6 @@ class MsSqlConnection {
         INSERT INTO ${this.tableName} (${Object.keys(queryData).map((key) => `[${key}]`).join(',')})
         VALUES (${Object.values(queryData).map((value) => (typeof value === 'string' ? `'${value}'` : value)).join(',')})
       `;
-
       await sql.query(query);
 
       console.log('Insert successful.');

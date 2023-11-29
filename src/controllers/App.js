@@ -89,7 +89,7 @@ class App {
 
   // Method to start data collection at specific intervals
   startDataCollectionInterval() {
-    setInterval(() => this.collectAndInsertData(), 15000);
+    setInterval(() => this.collectAndInsertData(), 1500);
   }
 }
 
