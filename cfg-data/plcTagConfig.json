@@ -1,0 +1,78 @@
+{
+    "plcTag0": {
+        "tagName": "rYagAlma1TankSicaklik",
+        "opcNodeId": "ns=4;i=2'"
+    },
+    "plcTag1": {
+        "tagName": "rYagAlma1TankSicaklikSet",
+        "opcNodeId": "ns=4;i=3'"
+    },
+    "plcTag2": {
+        "tagName": "rYagAlma2TankSicaklik",
+        "opcNodeId": "ns=4;i=7'"
+    },
+    "plcTag3": {
+        "tagName": "rYagAlma2TankSicaklikSet",
+        "opcNodeId": "ns=4;i=8'"
+    },
+    "plcTag4": {
+        "tagName": "rKurutmaFirinSicaklik",
+        "opcNodeId": "ns=4;i=12"
+    },
+    "plcTag5": {
+        "tagName": "rKurutmaFirinSicaklikSet",
+        "opcNodeId": "ns=4;i=13"
+    },
+    "plcTag6": {
+        "tagName": "rKurutmaFirinBacaSicaklik",
+        "opcNodeId": "ns=4;i=14"
+    },
+    "plcTag7": {
+        "tagName": "rKurutmaFirinBacaSicaklikSet",
+        "opcNodeId": "ns=4;i=15"
+    },
+    "plcTag8": {
+        "tagName": "rPisirmeFirinSicaklik",
+        "opcNodeId": "ns=4;i=19"
+    },
+    "plcTag9": {
+        "tagName": "rPisirmeFirinSicaklikSet",
+        "opcNodeId": "ns=4;i=20"
+    },
+    "plcTag10": {
+        "tagName": "rPisirmeFirinBacaSicaklik",
+        "opcNodeId": "ns=4;i=21"
+    },
+    "plcTag11": {
+        "tagName": "rPisirmeFirinBacaSicaklikSet",
+        "opcNodeId": "ns=4;i=22"
+    },
+    "plcTag12": {
+        "tagName": "rKonveyorHizi",
+        "opcNodeId": "ns=4;i=26"
+    },
+    "plcTag13": {
+        "tagName": "rKonveyorHiziSet",
+        "opcNodeId": "ns=4;i=27"
+    },
+    "plcTag14": {
+        "tagName": "Ortam_sicakligi",
+        "opcNodeId": "ns=4;i=28"
+    },
+    "plcTag15": {
+        "tagName": "Gaz_Sayaci",
+        "opcNodeId": "ns=4;i=29"
+    },
+    "plcTag16": {
+        "tagName": "Elektrik_Sayaci",
+        "opcNodeId": "ns=4;i=30"
+    },
+    "plcTag17": {
+        "tagName": "Identifier",
+        "opcNodeId": "ns=4;i=31"
+    },
+    "plcTag18": {
+        "tagName": "Start",
+        "opcNodeId": "ns=4;i=32"
+    }
+}

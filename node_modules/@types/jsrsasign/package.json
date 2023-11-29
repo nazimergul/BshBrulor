@@ -1,0 +1,25 @@
+{
+    "name": "@types/jsrsasign",
+    "version": "10.5.12",
+    "description": "TypeScript definitions for jsrsasign",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jsrsasign",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Florian Imdahl",
+            "githubUsername": "ffflorian",
+            "url": "https://github.com/ffflorian"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/jsrsasign"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "31f0ecbe7a43b3415573fb42fc8e8bf39b65bbc721e627ca90f58d7b0a6af6a7",
+    "typeScriptVersion": "4.6"
+}
